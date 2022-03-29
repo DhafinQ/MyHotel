@@ -1,3 +1,18 @@
+# MyHotel
+Aplikasi Hotel Sederhana Menggunakan Laravel.
+
+## Kalian Bisa :
+
+- Melihat Hotel-Hotel Mewah
+- Login & Register
+- Menghapus, Mengedit & Menambah Hotel (Jika Admin)
+- Mengedit Profile
+
+
+<p align="center"><img src="https://drive.google.com/uc?export=view&id=1zVJKRnlCXY5_wQ0x_uj0DAAsx_h1IzgJ" width="800"></p>
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
