@@ -48,14 +48,21 @@ class HotelController extends Controller
         $image = Image::make(public_path("storage/{$imagepath}"))->fit(960 , 540);
         $image->save();
         
-        $imageArray = ['image' => $imagepath];
+        $service =  implode(',', $data['services']);
+
         
-        Hotel::create(array_merge(
-            $data,
-            $imageArray,
-        ));
         
-        return redirect()->route('hotel.index');
+        Hotel::create([
+            'name' => $data['name'],
+            'review' => $data['review'],
+            'bill' => $data['bill'],
+            'description' => $data['description'],
+            'address' => $data['address'],
+            'image' => $imagepath,
+            'services' => $service,
+        ]);
+        
+        return redirect()->route('hotel.create')->with('success', 'New Hotel Is Added!');
     }
 
     /**
@@ -113,7 +120,7 @@ class HotelController extends Controller
             $imageArray,
         ));
         
-        return redirect()->route('hotel.index');
+        return redirect()->route('hotel.edit' , $hotel->id)->with('success', 'Hotel Is Updated!');;
     }
 
     /**
