@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class StoreHotelRequest extends FormRequest
+
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +15,7 @@ class StoreHotelRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -25,12 +27,8 @@ class StoreHotelRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'review' => 'required|numeric|max:5',
-            'bill' => 'required|numeric',
-            'description' => 'required',
-            'address' => 'required',
-            'image' => 'required|image',
-            'services' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:8|confirmed',
         ];
     }
 }

@@ -2,12 +2,31 @@
 @section('container')
 <div class="container">
     @if ($errors->all())
-    @foreach ($errors as $error)
-        <ul>
-            <li>{{$error}}</li>
-        </ul>
-    @endforeach
+    <div class="row content-center">
+        <div class="card">
+            <div class="card-body">
+                <h2>Error</h2>
+                @foreach ($errors->all() as $error)
+                    <ul>
+                        <li>{{$error}}</li>
+                    </ul>
+                @endforeach
+            </div>
+        </div>
+    </div>
     @endif
+    @if (session('success'))
+    <div class="row content-center">
+        <div class="card">
+            <div class="card-body">
+                <h2>Success</h2>
+                {{session('success')}}
+            </div>
+        </div>
+    </div>
+    @endif
+
+
     <div class="row content-center">
         <div class="card">
             <div class="card-header">
@@ -23,18 +42,16 @@
                     <textarea name="address" cols="30" rows="20" style="resize: none"  class="mb-2" placeholder="Hotel Address"></textarea><br>
                     <label for="image" class="mb-2">Hotel Image </label><br>
                     <input type="file" id="image" name="image"  class="mb-2"><br>
+                    <input type="checkbox" name="services[]" value="Wifi"> Wifi<br>
+                    <input type="checkbox" name="services[]" value="Swimming Pool"> Swimming Pool<br>
+                    <input type="checkbox" name="services[]" value="Breakfast & Dinner"> Breakfast & Dinner<br>
+                    <input type="checkbox" name="services[]" value="Laundry Service"> Laundry Service<br>
+                    <input type="checkbox" name="services[]" value="Gaming Room" class="mb-2"> Gaming Room<br>
                     <input type="submit" value="Add New">
                 </form>
             </div>
         </div>
-        
     </div>
 </div>
-@if ($errors->all())
-    @foreach ($errors as $error)
-        <ul>
-            <li>{{$error}}</li>
-        </ul>
-    @endforeach
-@endif
+
 

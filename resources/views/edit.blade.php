@@ -2,11 +2,28 @@
 @section('container')
 <div class="container">
     @if ($errors->all())
-    @foreach ($errors as $error)
-        <ul>
-            <li>{{$error}}</li>
-        </ul>
-    @endforeach
+    <div class="row content-center">
+        <div class="card">
+            <div class="card-body">
+                <h2>Error</h2>
+                @foreach ($errors->all() as $error)
+                    <ul>
+                        <li>{{$error}}</li>
+                    </ul>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="row content-center">
+        <div class="card">
+            <div class="card-body">
+                <h2>Success</h2>
+                {{session('success')}}
+            </div>
+        </div>
+    </div>
     @endif
     <div class="row content-center">
         <div class="card">
